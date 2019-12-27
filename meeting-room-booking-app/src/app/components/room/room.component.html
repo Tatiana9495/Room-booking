@@ -1,0 +1,62 @@
+<a routerLink="/home"><button mat-raised-button color="primary" type="button"
+    class="button button-back">Back</button></a>
+<div class="flex-form">
+  <form [formGroup]="eventForm" (ngSubmit)="postEvent(); getEvent()" class="form">
+    <mat-form-field class="title">
+      <input matInput type="text" placeholder="Title" formControlName="title" class="title-input">
+    </mat-form-field>
+    <div class="date-time">
+      <div class="date-from">
+        <label>
+          Date Time From:
+          <input [owlDateTimeTrigger]="dt12" [owlDateTime]="dt12" formControlName="dateStart"
+            [selectMode]="'rangeFrom'">
+          <owl-date-time #dt12></owl-date-time>
+        </label>
+      </div>
+      <div class="date-to">
+        <label>
+          Date Time To:
+          <input [owlDateTimeTrigger]="dt13" [owlDateTime]="dt13" formControlName="dateEnd" [selectMode]="'rangeTo'"
+            class="date-time-to">
+          <owl-date-time #dt13></owl-date-time>
+        </label>
+      </div>
+    </div>
+    <mat-form-field class="roomId">
+      <input matInput formControlName="roomId" placeholder="Write the room number" type="number">
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="eventForm.invalid" type="submit"
+      class="button button-book">Book</button>
+  </form>
+</div>
+
+<!-- <div class="table-grid">
+  <div class="cell 1-1-cell">Name</div>
+  <div class="cell 1-2-cell">Start</div>
+  <div class="cell 1-3-cell">End</div>
+  <div class="cell 1-4-cell">Delete</div>
+  <div class="event-list" *ngFor="let event of listEvents">
+  <div class="cell 2-1-cell">{{event.name}}</div>
+  <div class="cell 2-2-cell">{{event.startAt}}</div>
+  <div class="cell 2-3-cell">{{event.endAt}}</div>
+  <div class="cell 2-4-cell"><button type="button">Delete</button></div>
+</div>
+</div> -->
+<p class="paragraph">ROOM 1 BOOKINGS</p>
+<table class="table-bookings">
+  <tr class="table-header">
+    <th>Name</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Room</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let event of listEvents">
+    <td *ngIf="event.roomId=='1'" class="name-cell">{{event.name}}</td>
+    <td *ngIf="event.roomId=='1'" class="date-cell">{{event.startAt}}</td>
+    <td *ngIf="event.roomId=='1'" class="date-cell">{{event.endAt}}</td>
+    <td *ngIf="event.roomId=='1'">{{event.roomId}}</td>
+    <td *ngIf="event.roomId=='1'" class="delete-cell"><button type="button">Delete</button></td>
+  </tr>
+</table>

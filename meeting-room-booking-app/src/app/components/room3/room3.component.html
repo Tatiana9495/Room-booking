@@ -1,0 +1,50 @@
+<a routerLink="/home"><button mat-raised-button color="primary" type="button"
+  class="button button-back">Back</button></a>
+<div class="flex-form">
+<form [formGroup]="eventForm" (ngSubmit)="postEvent(); getEvent()" class="form">
+  <mat-form-field class="title">
+    <input matInput type="text" placeholder="Title" formControlName="title" class="title-input">
+  </mat-form-field>
+  <div class="date-time">
+    <div class="date-from">
+      <label>
+        Date Time From:
+        <input [owlDateTimeTrigger]="dt12" [owlDateTime]="dt12" formControlName="dateStart"
+          [selectMode]="'rangeFrom'">
+        <owl-date-time #dt12></owl-date-time>
+      </label>
+    </div>
+    <div class="date-to">
+      <label>
+        Date Time To:
+        <input [owlDateTimeTrigger]="dt13" [owlDateTime]="dt13" formControlName="dateEnd" [selectMode]="'rangeTo'"
+          class="date-time-to">
+        <owl-date-time #dt13></owl-date-time>
+      </label>
+    </div>
+  </div>
+  <mat-form-field class="roomId">
+    <input matInput formControlName="roomId" placeholder="Write the room number" type="number">
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="eventForm.invalid" type="submit"
+    class="button button-book">Book</button>
+</form>
+</div>
+<table class="table-bookings">
+  <tr>
+    <th class="name-column">Name</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Room</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let event of listEvents">
+    <td *ngIf="event.roomId=='3'">{{event.name}}</td>
+    <td *ngIf="event.roomId=='3'" class="date-cell">{{event.startAt}}</td>
+    <td *ngIf="event.roomId=='3'" class="date-cell">{{event.endAt}}</td>
+    <td *ngIf="event.roomId=='3'">{{event.roomId}}</td>
+    <td *ngIf="event.roomId=='3'">
+      <button mat-raised-button color="primary" type="button" class="button button-delete">Delete</button>
+    </td>
+  </tr>
+</table>

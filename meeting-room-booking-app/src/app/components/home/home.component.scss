@@ -1,0 +1,61 @@
+@import '../../../styles/variables';
+
+.container {
+  padding-top: 80px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 70px;
+  font-size: 46px;
+  text-transform: uppercase;
+}
+
+.flex-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.room {
+  width: 300px;
+  height: 300px;
+  border: 1px solid $black;
+  border-radius: 50%;
+  background-size: cover;
+  position: relative;
+}
+
+.room-link:hover {
+  border: 3px solid $dark-blue;
+  box-shadow: 0 0 15px $light-blue;
+  border-radius: 50%;
+}
+.room-first {
+  background-position-x: center;
+  background-image: url('../../../assets/images/1room.png');
+}
+
+.room-second {
+  background-image: url('../../../assets/images/2room.jpg');
+}
+
+.room-third {
+  background-position: center;
+  background-image: url('../../../assets/images/4room.jpg');
+}
+
+.room-num {
+  width: 80px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  border-radius: 25px 0 0 25px;
+  background-color: $black;
+  color: $white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+}

@@ -1,0 +1,55 @@
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+@import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Rajdhani&display=swap');
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  margin: 0;
+  height: 100%;
+  background-color: $light-gray;
+
+}
+
+.paragraph {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.table-bookings {
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px dashed $black;
+  margin-bottom: 20px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.table-header {
+  border-bottom: 1px solid $black;
+}
+
+.name-collumn {
+  width: 300px;
+}
+
+.date-cell {
+  width: 200px;
+}
+
+.name-cell {
+  width: 100px;
+}
+
+.delete-cell {
+  width: 100px;
+}
+
+.table-bookings tr {
+  border-bottom: 1px solid $black;
+}
+
+.table-bookings td,
+.table-bookings th {
+  padding: 5px 10px 5px 10px;
+}
